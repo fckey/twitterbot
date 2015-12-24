@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>twitterbot</artifactId>
+        <groupId>org.twitterbot</groupId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+
+    <name>Twitter Bot Core</name>
+    <artifactId>twitterbot-core</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <config.envNames>default,fkyish,noitazi</config.envNames>
+        <target.env>noitazi</target.env>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>default</id>
+            <properties>
+                <configFileDirectory>default</configFileDirectory>
+            </properties>
+        </profile>
+        <profile>
+            <id>fkyish</id>
+            <properties>
+                <configFileDirectory>fkyish</configFileDirectory>
+            </properties>
+        </profile>
+        <profile>
+            <id>noitazi</id>
+            <properties>
+                <configFileDirectory>noitazi</configFileDirectory>
+            </properties>
+        </profile>
+    </profiles>
+
+
+   <dependencies>
+       <dependency>
+           <groupId>org.codehaus.jackson</groupId>
+           <artifactId>jackson-mapper-asl</artifactId>
+       </dependency>
+       <dependency>
+           <groupId>org.twitter4j</groupId>
+           <artifactId>twitter4j-core</artifactId>
+       </dependency>
+       <dependency>
+           <groupId>log4j</groupId>
+           <artifactId>log4j</artifactId>
+       </dependency>
+   </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <!--<filters>-->
+            <!--<filter>src/main/config/${target.env}.properties</filter>-->
+        <!--</filters>-->
+        <resources>
+            <resource>
+                <directory>src/main/config</directory>
+                <!--<filtering>true</filtering>-->
+            </resource>
+        </resources>
+        <plugins>
+        </plugins>
+    </build>
+
+</project>
