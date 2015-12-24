@@ -1,5 +1,10 @@
 *.class
+fkyish.properties
+noitazi.properties
 
+*.iml
+target
+.idea
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
